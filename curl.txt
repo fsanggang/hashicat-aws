@@ -1,0 +1,16 @@
+# to apply variables
+curl \
+  --header "Authorization: Bearer $TOKEN" \
+  --header "Content-Type: application/vnd.api+json" \
+  --request POST \
+  --data @var-placeholder.json \
+  https://app.terraform.io/api/v2/workspaces/ws-4Ybv4QrMxkkmq2Fd/vars
+
+# to apply a run that has been paused for confirmation
+# i.e. apply method 'manual apply'
+curl \
+  --header "Authorization: Bearer $TOKEN" \
+  --header "Content-Type: application/vnd.api+json" \
+  --request POST \
+  --data @apply.json \
+  https://app.terraform.io/api/v2/runs/run-5F27QVZPCxGJjQhT/actions/apply
